@@ -345,11 +345,11 @@ class HDFSContentsManager(ContentsManager, HDFSManagerMixin):
             # Don't delete non-empty directories.
             # A directory containing only leftover checkpoints is
             # considered empty.
-            cp_dir = getattr(self.checkpoints, 'checkpoint_dir', None)
-            for longentry in listing:
-                entry = longentry.strip('/').rsplit('/', 1)[-1]
-                if entry != cp_dir:
-                    raise web.HTTPError(400, u'Directory %s not empty' % hdfs_path)
+            #cp_dir = getattr(self.checkpoints, 'checkpoint_dir', None)
+            #for longentry in listing:
+            #    entry = longentry.strip('/').rsplit('/', 1)[-1]
+            #    if entry != cp_dir:
+            #        raise web.HTTPError(400, u'Directory %s not empty' % hdfs_path)
         elif not self._hdfs_file_exists(hdfs_path):
             raise web.HTTPError(404, u'File does not exist: %s' % hdfs_path)
 
